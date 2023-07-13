@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+nav {
+    color: #CCCC33;
+    height: 56px;
+    padding: 0 10px;
+    font-size: clamp(1.5rem, 2.0vw, 4rem); 
+    background-color: #FF9900;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid rgb(48, 25, 52);
+}
+
+body {
+    background-image: url("https://images.hdqwalls.com/download/under-the-stars-dragon-4k-hh-1536x864.jpg");
+    overflow-y: hidden;
+}
+
+main {
+    margin-left: 0px;
+    margin-right: 0px;
+    display: flex;
+}
+
+#channels {
+    flex: 38%;
+    background-color: #C0C0C0;
+    max-height: calc(100vh - 120px) !important;
+    overflow-y: scroll;
+    margin-top: 5px;
+    margin-left: 0px;
+    overflow-x: hidden;
+}
+.channel_collapse {
+    margin-top: 0px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    display: flex;  
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+#player {
+    flex: 64%;
+    margin: auto 1px;
+    margin-top: 5px;
+    margin-right: 0px;
+}
+.category {
+    width: 90%;
+    color: 	#110000;
+    background-color: #FFCCFF;
+    padding: 10px;
+    border-bottom: solid 2px #FFFFFF;
+    cursor: pointer;
+    font-size: 20px;
+}
+.active, .category:hover {
+    background-color: #999999;
+    border-radius: 10px;
+    color: white;
+  }
+.category:after {
+  content: '\002B';
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 15px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #363636;
+}
+
+.channel {
+    background-color: #EFEFEF;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 7px;
+    cursor: pointer;
+}
+
+.channel:active {
+    animation: press 0.2s 1 linear;
+}
+
+.channel img {
+    width: 112px;
+    height: 65px;
+    border: 1px solid #555;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media only screen and (max-width: 640px) {
+    nav {
+        text-align: center;
+    }
+    main {
+        flex-direction: column-reverse;
+    }
+    body {
+        overflow-y: auto;
+    }
+    #channels {
+        height: fit-content;
+        overflow-y: unset;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .channel {
+        margin-right: 0;
+    }
+    #player {
+        flex: auto;
+        min-width: 192px;
+        min-height: 108px;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+@keyframes press {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.92);
+    }
+    to {
+        transform: scale(1);
+    }
+}
